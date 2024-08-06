@@ -3,14 +3,12 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:unrespiro/constant.dart';
 import 'package:unrespiro/provider/actions/action_provider.dart';
-import 'package:unrespiro/provider/chronometer_provider/chronometer_provider.dart';
 import 'package:unrespiro/provider/dropdown/dropdown_provider.dart';
 import 'package:unrespiro/provider/matrics_progess/matrics_provider.dart';
 import 'package:unrespiro/provider/navigation/navigation_provider.dart';
 import 'package:unrespiro/provider/plan/plan_provider.dart';
 import 'package:unrespiro/provider/progress_bar/progress_bar.dart';
 import 'package:unrespiro/provider/theme/theme_provider.dart';
-import 'package:unrespiro/provider/timer_provider/timer_provider.dart';
 import 'package:unrespiro/provider/toggle/toggle_provider.dart';
 
 import 'model/res/routes/routes.dart';

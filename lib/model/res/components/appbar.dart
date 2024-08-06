@@ -42,10 +42,11 @@ class AppbarWidget extends StatelessWidget {
 
     return Container(
       height: height ?? 100,
-      width: width ?? Get.width,
+      width: width ?? double.infinity,
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(image ?? '')),
+         image: DecorationImage(
+             image: AssetImage(image ?? ''),fit: BoxFit.cover),
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(topRight),
               topLeft: Radius.circular(topLeft),
@@ -54,7 +55,7 @@ class AppbarWidget extends StatelessWidget {
               bottomRight: Radius.circular(bottomRight))
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.only(top: 40),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +64,7 @@ class AppbarWidget extends StatelessWidget {
             GestureDetector(
                 onTap:onTap,
                 child: Icon(icon,size: 20,)),
-            SizedBox(width: Get.width/3.7,),
+            SizedBox(width: Get.width/3.2,),
             AppTextWidget(
               fontWeight: FontWeight.bold,
               color: textColor,

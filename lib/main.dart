@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +8,7 @@ import 'package:unrespiro/provider/actions/action_provider.dart';
 import 'package:unrespiro/provider/chronometer_provider/chronometer_provider.dart';
 import 'package:unrespiro/provider/dropdown/dropdown_provider.dart';
 import 'package:unrespiro/provider/matrics_progess/matrics_provider.dart';
+import 'package:unrespiro/provider/navigation/navigation_provider.dart';
 import 'package:unrespiro/provider/plan/plan_provider.dart';
 import 'package:unrespiro/provider/progress_bar/progress_bar.dart';
 import 'package:unrespiro/provider/theme/theme_provider.dart';
@@ -18,7 +21,10 @@ import 'model/res/routes/routes_name.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await ThemeProvider().loadThemeMode();
-  runApp(const MyApp());
+  runApp( DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => const MyApp(),
+  ),);
 }
 
 class MyApp extends StatelessWidget {
@@ -29,6 +35,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => NavigationProvider()),
         ChangeNotifierProvider(create: (_) => ActionProvider()),
         ChangeNotifierProvider(create: (_) => ProgressModel()),
         ChangeNotifierProvider(create: (_) => ToggleModel()),
@@ -41,6 +48,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(
        builder: (context,provider,child){
          return GetMaterialApp(
+           builder: DevicePreview.appBuilder,
            debugShowCheckedModeBanner: false,
            title: 'Un Respiro',
            themeMode: provider.themeMode,

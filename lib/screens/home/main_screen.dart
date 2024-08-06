@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:unrespiro/screens/focus/focus_ScreenO.dart';
 import 'package:unrespiro/screens/home/home_screen.dart';
+import 'package:unrespiro/screens/menu/profile/profile_screen.dart';
 
 import '../../model/res/constant/app_assets.dart';
 import '../../model/res/constant/app_colors.dart';
+import '../../model/res/widgets/custom_bottomNavigationBar.dart';
+import '../../provider/navigation/navigation_provider.dart';
 import '../../provider/theme/theme_provider.dart';
 import '../menu/menu_screen.dart';
 import 'instagram/instagram.dart';
@@ -18,56 +21,26 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  List<Widget> pages = [ FocusScreenO(), const HomeScreen(), MenuScreen()];
-  int _selectedIndex = 1;
-
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final navigationProvider = Provider.of<NavigationProvider>(context);
     final _isDark = themeProvider.isDarkMode;
 
     return Scaffold(
       body: IndexedStack(
-        index: _selectedIndex,
-        children: pages,
+        index: navigationProvider.selectedIndex,
+         children: [
+          FocusScreenO(),
+       HomeScreen(),
+      MenuScreen(),
+      ProfileScreen(),
+      ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor:  Colors.transparent,
-        elevation: 0,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              AppAssets.logo,
-              height: 30,
-              color: _selectedIndex == 0 ? (
-                  _isDark ? AppColors.appYellowColor : AppColors.appRedColor)
-                  :  _isDark ? Colors.grey :AppColors.appYellowColor,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              size: 30,
-              color: _selectedIndex == 1 ? (_isDark ? AppColors.appYellowColor : AppColors.appRedColor) : _isDark ? Colors.grey :AppColors.appYellowColor,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.menu,
-              size: 30,
-              color: _selectedIndex == 2 ? (_isDark ? AppColors.appYellowColor : AppColors.appRedColor) :  _isDark ? Colors.grey :AppColors.appYellowColor,
-            ),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Color(0xFFEDE7F6),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: navigationProvider.selectedIndex,
         onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+          navigationProvider.setIndex(index);
         },
       ),
     );

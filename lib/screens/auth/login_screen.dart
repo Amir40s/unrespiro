@@ -38,8 +38,8 @@ class LoginScreen extends StatelessWidget {
       body: Stack(
         children: [
       Container(
-        height: Get.height,
-            width: Get.width,
+        height: double.infinity,
+            width: double.infinity,
         child: Image.asset(
           _isDark?
           AppAssets.loginBackground:AppAssets.loginBackgroundWhite,

@@ -36,70 +36,63 @@ class _NumbersButtonState extends State<NumbersButton> {
             color: _isDark ? Colors.white:Colors.black,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 28.0,right: 28,top: 10,bottom: 0),
-          child: Container(
-              padding: EdgeInsets.only(right: 30,bottom:5,top: 5,left: 40,),
-              width: double.infinity,
-              height: Get.height / 4.1,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          buildNumber('1'),
-                          SizedBox(width: 25,),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 100),
+            //padding: EdgeInsets.only(right: 30,bottom:5,top: 5,left: 40,),
+            width: double.infinity,
+            height: Get.height / 4.1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildNumber('1'),
+                      SizedBox(width: 25,),
 
-                          buildNumber('2'),
-                          SizedBox(width: 25,),
+                      buildNumber('2'),
+                      SizedBox(width: 25,),
 
-                          buildNumber('3'),
-                        ]                                    ),
-                  ),Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          buildNumber('4'),
-                          SizedBox(width: 25,),
+                      buildNumber('3'),
+                    ]                                    ),
+                SizedBox(height: 10,),
+                Row(
+                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildNumber('4'),
+                      SizedBox(width: 25,),
 
-                          buildNumber('5'),
-                          SizedBox(width: 25,),
+                      buildNumber('5'),
+                      SizedBox(width: 25,),
 
-                          buildNumber('6'),
-                        ]                                    ),
-                  ),Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          buildNumber('7'),
-                          SizedBox(width: 25,),
+                      buildNumber('6'),
+                    ]                                    ),
+                SizedBox(height: 10,),
 
-                          buildNumber('8'),
-                          SizedBox(width: 25,),
+                Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildNumber('7'),
+                      SizedBox(width: 25,),
 
-                          buildNumber('9'),
-                        ]                                    ),
-                  ),Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          buildNumber('0'),
-                          SizedBox(width: 25,),
-                          buildNumber('00'),
-                          SizedBox(width: 25,),
-                          buildDeleteButton(),
-                        ]                                    ),
-                  ),
-                ],
-              )),
-        ),
+                      buildNumber('8'),
+                      SizedBox(width: 25,),
+
+                      buildNumber('9'),
+                    ]                                    ),
+                SizedBox(height: 10,),
+                Row(
+                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      buildNumber('0'),
+                      SizedBox(width: 25,),
+                      buildNumber('00'),
+                      SizedBox(width: 25,),
+                      buildDeleteButton(),
+                    ]                                    ),
+              ],
+            )),
 
       ],
     )

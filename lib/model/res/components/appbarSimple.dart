@@ -108,7 +108,7 @@ class MoreAppbarSimpleWidget extends StatelessWidget {
 
     return Container(
         height: height ?? 100,
-        width: width ?? Get.width,
+        width: width ?? double.infinity,
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
             gradient: LinearGradient(

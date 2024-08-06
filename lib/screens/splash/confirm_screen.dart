@@ -32,7 +32,7 @@ class ConfirmScreen extends StatelessWidget {
       body: Stack(
         children: [
         Container(
-        height: Get.height,
+        height: double.infinity,
         decoration: BoxDecoration(
           color: _isDark ?Colors.black:Color(0xffEAE1E1)
 

@@ -34,24 +34,22 @@ class PermissionScreen extends StatelessWidget {
       body: Stack(
         children: [
           _isDark
-              ? Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                      height:Get.height,
-                      width: Get.width ,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(
-                              AppAssets.permissionBackground,
-                            ),
-                            fit: BoxFit.fill,
-                            opacity: 0.8),
-                      ),
-
+              ? Container(
+                  height:double.infinity,
+                  width: double.infinity ,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(
+                          AppAssets.permissionBackground,
+                        ),
+                        fit: BoxFit.fill,
+                        opacity: 0.8),
                   ),
-                )
+
+              )
               : Container(
-            height: Get.height,
+            height: double.infinity,
+                  width: double.infinity,
                   decoration: BoxDecoration(
                     color: Color(0xffEAE1E1),
 

@@ -78,12 +78,12 @@ class Instagram extends StatelessWidget {
             children: [
               //SizedBox(height: Get.height*0.05,),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 20, right: 20, bottom: 10, top: 40),
+                padding:  EdgeInsets.only(
+                    left: 20, right: 20, bottom: 10, top: Get.height * 0.06),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
+                    Stack(
                       children: [
                         GestureDetector(
                           onTap: () {
@@ -95,11 +95,14 @@ class Instagram extends StatelessWidget {
                             size: 16,
                           ),
                         ),
-                        SizedBox(width: Get.width / 4.1),
-                        AppTextWidget(
-                          text: 'APPLICATIONS',
-                          fontSize: 16,
-                          color: _isDark ? Colors.black : Colors.white,
+                        // SizedBox(width: Get.width / 4.1),
+                        Align(
+                          alignment: AlignmentDirectional.center,
+                          child: AppTextWidget(
+                            text: 'APPLICATIONS',
+                            fontSize: 16,
+                            color: _isDark ? Colors.black : Colors.white,
+                          ),
                         ),
                       ],
                     ),

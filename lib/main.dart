@@ -19,7 +19,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ThemeProvider().loadThemeMode();
   runApp(DevicePreview(
-    enabled: true, // Set to false to disable device preview
+    enabled: false, // Set to false to disable device preview
     builder: (context) => const MyApp(),
   ));
 }

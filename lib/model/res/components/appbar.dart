@@ -62,7 +62,6 @@ class AppbarWidget extends StatelessWidget {
           // mainAxisAlignment: MainAxisAlignment.start,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             //SizedBox(width: Get.width/3.2,),
             Align(
               alignment: AlignmentDirectional.topCenter,

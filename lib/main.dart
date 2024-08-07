@@ -10,14 +10,18 @@ import 'package:unrespiro/provider/plan/plan_provider.dart';
 import 'package:unrespiro/provider/progress_bar/progress_bar.dart';
 import 'package:unrespiro/provider/theme/theme_provider.dart';
 import 'package:unrespiro/provider/toggle/toggle_provider.dart';
+import 'package:device_preview/device_preview.dart';
 
 import 'model/res/routes/routes.dart';
 import 'model/res/routes/routes_name.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ThemeProvider().loadThemeMode();
-  runApp(const MyApp());
+  runApp(DevicePreview(
+    enabled: true, // Set to false to disable device preview
+    builder: (context) => const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -36,36 +40,36 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => MatricsPercentageProvider()),
         ChangeNotifierProvider(create: (_) => DropdownProvider()),
         //ChangeNotifierProvider(create: (_) => CronometerProvider()),
-       // ChangeNotifierProvider(create: (_) => TimerProvider()),
+        // ChangeNotifierProvider(create: (_) => TimerProvider()),
       ],
       child: Consumer<ThemeProvider>(
-       builder: (context,provider,child){
-         return GetMaterialApp(
-           debugShowCheckedModeBanner: false,
-           title: 'Un Respiro',
-           themeMode: provider.themeMode,
-           theme: ThemeData(
-             primaryColor: primaryColor,
-             useMaterial3: true,
-             colorScheme: const ColorScheme.light(
-               primary: primaryColor,
-             ),
-           ),
-           darkTheme: ThemeData(
-             primaryColor: primaryColor,
-             useMaterial3: true,
-             scaffoldBackgroundColor: Colors.black,
-             colorScheme: const ColorScheme.dark(
-               primary: primaryColor,
-               surface: Colors.black
-             ),
-           ),
-           initialRoute: RoutesName.splashScreen,
-           getPages: Routes.routes,
-         );
-       },
+        builder: (context, provider, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Un Respiro',
+            themeMode: provider.themeMode,
+            theme: ThemeData(
+              primaryColor: primaryColor,
+              useMaterial3: true,
+              colorScheme: const ColorScheme.light(
+                primary: primaryColor,
+              ),
+            ),
+            darkTheme: ThemeData(
+              primaryColor: primaryColor,
+              useMaterial3: true,
+              scaffoldBackgroundColor: Colors.black,
+              colorScheme: const ColorScheme.dark(
+                primary: primaryColor,
+                surface: Colors.black,
+              ),
+            ),
+            initialRoute: RoutesName.splashScreen,
+            getPages: Routes.routes,
+            builder: DevicePreview.appBuilder, // Add this line
+          );
+        },
       ),
     );
   }
 }
-

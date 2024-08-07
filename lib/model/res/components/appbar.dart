@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +14,7 @@ class AppbarWidget extends StatelessWidget {
   final String text;
   final String? image;
   final IconData? icon;
-  final VoidCallback? onTap;
+  final VoidCallback onTap;
   final Color color,textColor,secondColorGradient;
    double bottomLeft,bottomRight,topRight,topLeft,fontSize;
    double? width,height;
@@ -32,7 +34,7 @@ class AppbarWidget extends StatelessWidget {
      this.isGradient = false,
      this.height,
      this.width,
-     this.onTap,
+     required this.onTap,
    });
 
   @override
@@ -56,19 +58,26 @@ class AppbarWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 40),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(width: 20,),
+
+            //SizedBox(width: Get.width/3.2,),
+            Align(
+              alignment: AlignmentDirectional.topCenter,
+              child: AppTextWidget(
+                fontWeight: FontWeight.bold,
+                color: textColor,
+                text:text ?? "",fontSize: fontSize,textAlign: TextAlign.center,),
+            ),
             GestureDetector(
-                onTap:onTap,
-                child: Icon(icon,size: 20,)),
-            SizedBox(width: Get.width/3.2,),
-            AppTextWidget(
-              fontWeight: FontWeight.bold,
-              color: textColor,
-              text:text ?? "",fontSize: fontSize,textAlign: TextAlign.center,),
+              onTap:onTap,
+              child: Container(
+                margin: EdgeInsets.only(left: Get.height*0.03),
+                child: Icon(icon,size: 20,),
+              ),
+            ),
           ],
         ),
       )

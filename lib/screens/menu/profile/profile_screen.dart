@@ -143,10 +143,14 @@ class ProfileScreen extends StatelessWidget {
                       textColor: _isDark ? Colors.white : Colors.black,
                       icon: Icons.arrow_back_ios,
                       onTap: () {
+                        log('message');
+                        Get.back();
                         Navigator.pop(context);
                       },
                       //isGradient: _isDark ?  true : false,
                       height: 170,
+                      topRight: 0.0,
+                      topLeft: 0.0,
                       bottomLeft: Get.width / 1.5,
                       bottomRight: Get.width / 1.5,
                     )
@@ -158,11 +162,15 @@ class ProfileScreen extends StatelessWidget {
                       textColor: _isDark ? Colors.white : Colors.black,
                       icon: Icons.arrow_back_ios,
                       onTap: () {
+                        log('message');
+                        Get.back();
                         Navigator.pop(context);
                       },
                       // isGradient: _isDark ?  true : false,
                       height: 170, bottomLeft: Get.width / 1.5,
                       bottomRight: Get.width / 1.5,
+                      topRight: 0.0,
+                      topLeft: 0.0,
                     ),
               Image.asset(
                 _isDark
@@ -171,7 +179,7 @@ class ProfileScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Container(
-                height: Get.height/2.2,
+                height: Get.height / 2.2,
                 child: Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:material_neumorphic_progress/material_neumorphic_progress.dart';
 import 'package:provider/provider.dart';
-import 'package:unrespiro/constant.dart';
 import 'package:unrespiro/model/res/constant/app_assets.dart';
 import 'package:unrespiro/model/res/constant/app_colors.dart';
 import 'package:unrespiro/model/res/widgets/app_text.dart.dart';
@@ -11,8 +9,6 @@ import '../../../model/res/components/chart.dart';
 import '../../../provider/progress_bar/gradient_bar.dart';
 import '../../../provider/progress_bar/progress_bar.dart';
 import '../../../provider/theme/theme_provider.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class Instagram extends StatelessWidget {
   const Instagram({super.key});
@@ -146,10 +142,10 @@ class Instagram extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    const CartesianChart(
-                      title: 'Time spent on Instagram',
-                      time: 'Time',
-                    ),
+                    // const CartesianChart(
+                    //   title: 'Time spent on Instagram',
+                    //   time: 'Time',
+                    // ),
                   ],
                 ),
               ),

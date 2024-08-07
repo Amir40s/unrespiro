@@ -102,7 +102,7 @@ class MetricsScreen extends StatelessWidget {
                       color: _isDark ? Colors.white: AppColors.appRedColor,
                       fontWeight: FontWeight.w500,fontSize: 14,),
                     buildDropDown(context),
-                    CartesianChartTwo(title: '',time: '',),
+                  //  CartesianChartTwo(title: '',time: '',),
                     SizedBox(height: 20,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),

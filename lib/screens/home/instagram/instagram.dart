@@ -142,6 +142,7 @@ class Instagram extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 15),
+                    LineChartSample(),
                     // const CartesianChart(
                     //   title: 'Time spent on Instagram',
                     //   time: 'Time',

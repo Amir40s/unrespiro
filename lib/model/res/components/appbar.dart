@@ -57,7 +57,7 @@ class AppbarWidget extends StatelessWidget {
               bottomRight: Radius.circular(bottomRight))
       ),
       child: Padding(
-        padding: const EdgeInsets.only(top: 40),
+        padding:  EdgeInsets.only(top: Get.width*0.12),
         child: Stack(
           // mainAxisAlignment: MainAxisAlignment.start,
           // crossAxisAlignment: CrossAxisAlignment.start,

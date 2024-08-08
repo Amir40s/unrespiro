@@ -40,7 +40,7 @@ class AppbarSimpleWidget extends StatelessWidget {
 
     return Container(
         height: height ?? 100,
-        width: width ?? Get.width,
+        width: width ?? double.infinity,
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -58,19 +58,24 @@ class AppbarSimpleWidget extends StatelessWidget {
                 bottomRight: Radius.circular(bottomRight))
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 30),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          padding:  EdgeInsets.only(
+              top: Get.height*0.05),
+          child: Stack(
             children: [
-              SizedBox(width: 20,),
+
+              //SizedBox(width: Get.width/3.7,),
+              Align(
+                alignment: Alignment.center,
+                child: AppTextWidget(
+                  fontWeight: FontWeight.bold,
+                  color: textColor,
+                  text:text ?? "",fontSize: fontSize,textAlign: TextAlign.center,),
+              ),
               GestureDetector(onTap:onTap,
-                  child: Icon(icon,size: 18,)),
-              SizedBox(width: Get.width/3.7,),
-              AppTextWidget(
-                fontWeight: FontWeight.bold,
-                color: textColor,
-                text:text ?? "",fontSize: fontSize,textAlign: TextAlign.center,),
+                  child: Container(
+                      margin: EdgeInsets.only(left: Get.height*0.03),
+
+                      child: Icon(icon,size: 18,))),
             ],
           ),
         )

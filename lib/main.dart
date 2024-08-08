@@ -12,6 +12,7 @@ import 'package:unrespiro/provider/theme/theme_provider.dart';
 import 'package:unrespiro/provider/toggle/toggle_provider.dart';
 import 'package:device_preview/device_preview.dart';
 
+import 'model/res/components/chart.dart';
 import 'model/res/routes/routes.dart';
 import 'model/res/routes/routes_name.dart';
 
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             initialRoute: RoutesName.splashScreen,
-            getPages: Routes.routes,
+             getPages: Routes.routes,
             builder: DevicePreview.appBuilder, // Add this line
           );
         },

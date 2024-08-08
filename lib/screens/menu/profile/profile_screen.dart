@@ -35,12 +35,12 @@ class ProfileScreen extends StatelessWidget {
       //     ),
       //   ],
       // ),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: navigationProvider.selectedIndex,
-        onTap: (index) {
-          navigationProvider.setIndex(index);
-        },
-      ),
+      // bottomNavigationBar: CustomBottomNavigationBar(
+      //   selectedIndex: navigationProvider.selectedIndex,
+      //   onTap: (index) {
+      //     navigationProvider.setIndex(index);
+      //   },
+      // ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: SizedBox(
@@ -323,7 +323,7 @@ class ProfileScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10),
         child: Container(
           color: Colors.transparent,
           child: Row(

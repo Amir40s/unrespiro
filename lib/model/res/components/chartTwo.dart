@@ -123,3 +123,129 @@
 //   final String year;
 //   final double sales;
 // }
+import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:provider/provider.dart';
+
+import '../../../provider/theme/theme_provider.dart';
+
+class LineChartSampleTwo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final _isDark = themeProvider.isDarkMode;
+    return Container(
+      height: 250,
+      child: LineChart(
+        LineChartData(
+          lineBarsData: [
+            LineChartBarData(
+              spots: [
+                FlSpot(0, 30),
+                FlSpot(1, 50),
+                FlSpot(2, 70),
+                FlSpot(3, 60),
+                FlSpot(4, 80),
+                FlSpot(5, 40),
+                FlSpot(6, 60),
+                FlSpot(7, 50),
+                FlSpot(8, 70),
+                FlSpot(9, 60),
+                FlSpot(10, 90),
+                FlSpot(11, 70),
+              ],
+              isCurved: true,
+              curveSmoothness: 0.1, // Adjust this value for smoother curves
+              colors: [Colors.orange],
+              barWidth: 2,
+              isStrokeCapRound: true,
+              dotData: FlDotData(show: false),
+              belowBarData: BarAreaData(show: false),
+            ),
+            LineChartBarData(
+              spots: [
+                FlSpot(0, 40),
+                FlSpot(1, 30),
+                FlSpot(2, 60),
+                FlSpot(3, 50),
+                FlSpot(4, 70),
+                FlSpot(5, 40),
+                FlSpot(6, 50),
+                FlSpot(7, 40),
+                FlSpot(8, 60),
+                FlSpot(9, 50),
+                FlSpot(10, 70),
+                FlSpot(11, 60),
+              ],
+              isCurved: true,
+              curveSmoothness: 0.1, // Adjust this value for smoother curves
+              colors: [Colors.blue],
+              barWidth: 2,
+              isStrokeCapRound: true,
+              dotData: FlDotData(show: false),
+              belowBarData: BarAreaData(show: false),
+            ),
+          ],
+          titlesData: FlTitlesData(
+            leftTitles: SideTitles(
+                getTextStyles: (context, value) => TextStyle(
+                  color: _isDark ? Colors.grey : Colors.black,
+                  fontSize: 12,
+                ),
+                showTitles: true),
+            bottomTitles: SideTitles(
+              showTitles: true,
+              getTextStyles: (context, value) => TextStyle(
+                color: _isDark ? Colors.grey : Colors.black,
+                fontSize: 12,
+              ),
+              getTitles: (value) {
+
+                switch (value.toInt()) {
+                  case 0:
+                    return 'Ene';
+                  case 1:
+                    return 'Feb';
+                  case 2:
+                    return 'Mar';
+                  case 3:
+                    return 'Abr';
+                  case 4:
+                    return 'May';
+                  case 5:
+                    return 'Jun';
+                  case 6:
+                    return 'Jul';
+                  case 7:
+                    return 'Ago';
+                  case 8:
+                    return 'Sep';
+                  case 9:
+                    return 'Oct';
+                  case 10:
+                    return 'Nov';
+                  case 11:
+                    return 'Dic';
+                  default:
+                    return '';
+                }
+              },
+            ),
+          ),
+          gridData: FlGridData(show: true,
+
+            drawVerticalLine: false,
+            drawHorizontalLine: false,
+          ),
+          borderData: FlBorderData(show: true,
+            border: Border(
+              left: BorderSide(color: _isDark ? Colors.grey:Colors.black, width: 1),
+              bottom: BorderSide(color: _isDark ? Colors.grey: Colors.black, width: 1),
+            ),
+          ),
+          lineTouchData: LineTouchData(enabled: false),
+        ),
+      ),
+    );
+  }
+}

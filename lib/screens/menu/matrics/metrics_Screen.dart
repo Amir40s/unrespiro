@@ -31,7 +31,7 @@ class MetricsScreen extends StatelessWidget {
     final _isDark = themeProvider.isDarkMode;
     final progressData = context.watch<ProgressModel>().progress;
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         height: Get.height,
         child: SingleChildScrollView(
           child: Column(
@@ -102,6 +102,8 @@ class MetricsScreen extends StatelessWidget {
                       color: _isDark ? Colors.white: AppColors.appRedColor,
                       fontWeight: FontWeight.w500,fontSize: 14,),
                     buildDropDown(context),
+                  SizedBox(height:15),
+                  LineChartSampleTwo(),
                   //  CartesianChartTwo(title: '',time: '',),
                     SizedBox(height: 20,),
                     Padding(

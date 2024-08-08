@@ -143,7 +143,7 @@ class MenuScreen extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: Get.height * 0.19,
+              top: Get.height * 0.15,
               left: Get.width * 0.31,
               child: Consumer<ActionProvider>(
                 builder: (context, provider, child) {
@@ -180,7 +180,7 @@ class MenuScreen extends StatelessWidget {
                         child: Stack(
                           children: <Widget>[
                             Positioned(
-                              top: 15,
+                              top: Get.height*0.03,
                               right: 20,
                               child: GestureDetector(
                                 onTap: () {
